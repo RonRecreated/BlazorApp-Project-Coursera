@@ -1,0 +1,15 @@
+@using EventEaseApp.Models
+
+<div class="event-card">
+    <h3>@EventData.Name</h3>
+
+    <div class="event-details">
+        <p><strong>Date:</strong> @EventData.Date.ToShortDateString()</p>
+        <p><strong>Location:</strong> @EventData.Location</p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Event EventData { get; set; } = new Event();
+}

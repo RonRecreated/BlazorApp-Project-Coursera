@@ -1,0 +1,46 @@
+@page "/events/{id:int}"
+@using EventEaseApp.Models
+@using EventEaseApp.Services
+@inject EventService EventService
+@inject NavigationManager Nav
+@inject AttendanceService AttendanceService
+
+
+<h2>Event Details</h2>
+
+@if (EventData is null)
+{
+    <p>Event not found.</p>
+}
+else
+{
+    <EventCard EventData="@EventData" />
+
+    <!-- Display attendees for the event -->
+    <ul>
+    @foreach (var attendee in AttendanceService.GetAttendanceForEvent(Id))
+    {
+        <li>@attendee.Name (@attendee.Email)</li>
+    }
+    </ul>
+
+    <button class="btn btn-success" @onclick="GoToRegistration">
+        Register
+    </button>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+
+    private Event? EventData;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        EventData = await EventService.GetEventByIdAsync(Id);
+    }
+
+    private void GoToRegistration()
+    {
+        Nav.NavigateTo($"/register/{Id}");
+    }
+}
