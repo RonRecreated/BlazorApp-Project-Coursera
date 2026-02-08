@@ -1,5 +1,4 @@
 C:\Users\ronal\EventEaseApp\bin\Release\net10.0\publish\wwwroot\index.html
-C:\Users\ronal\EventEaseApp\bin\Release\net10.0\publish\docs\sample-data\weather.json
 C:\Users\ronal\EventEaseApp\bin\Release\net10.0\publish\EventEaseApp.runtimeconfig.json
 C:\Users\ronal\EventEaseApp\bin\Release\net10.0\publish\dotnet.js
 C:\Users\ronal\EventEaseApp\bin\Release\net10.0\publish\web.config
